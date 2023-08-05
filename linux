@@ -78,6 +78,9 @@ fancy_echo "Installing zsh and making it default shell..."
   sudo apt install -y zsh
   chsh -s $(which zsh)
 
+fancy_echo "Installing oh-my-zsh ..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # fancy_echo "Installing node, to render the rails asset pipeline ..."
 #   curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 #   sudo apt install -y nodejs
@@ -133,9 +136,6 @@ fancy_echo "Installing Wine"
   sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
   sudo apt update
   sudo apt install -y --install-recommends winehq-stable
-
-fancy_echo "Installing oh-my-zsh ..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
