@@ -142,6 +142,7 @@ fancy_echo "Installing Wine"
 
 fancy_echo "Installing fonts ..."
   sudo apt install fonts-firacode
+  sudo apt install fonts-jetbrains-mono
 
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
