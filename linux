@@ -71,8 +71,8 @@ fancy_echo "Installing Sublime Text 3 ..."
 fancy_echo "Installing VS Code ..."
   sudo snap install --classic code
 
-fancy_echo "Installing Unity Tweak Tool ..."
-  sudo apt install -y unity-tweak-tool
+# fancy_echo "Installing Unity Tweak Tool ..."
+#   sudo apt install -y unity-tweak-tool
 
 fancy_echo "Installing zsh and making it default shell..."
   sudo apt install -y zsh
