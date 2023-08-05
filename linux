@@ -63,7 +63,7 @@ fancy_echo "Installing Redis ..."
   sudo snap install redis
 
 fancy_echo "Installing Ngrok ..."
-  wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && rm ngrok-stable-linux-amd64.zip
+  sudo snap install ngrok
 
 fancy_echo "Installing Sublime Text 3 ..."
   sudo snap install --classic sublime-text
