@@ -23,13 +23,19 @@ fancy_echo "Installing libraries for common gem dependencies ..."
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
 
+# fancy_echo "Installing VLC media player"
+#   sudo snap install vlc
+
 fancy_echo "Installing Postman API development environment"
   sudo snap install postman
 
-fancy_echo "Installing Joxi"
-  wget -q "http://dl.joxi.ru/linux/joxi-amd64.deb"
-  sudo apt install -y ./joxi-amd64.deb
-  rm joxi-amd64.deb
+# fancy_echo "Installing simple screen recorder"
+#   sudo apt install -y simplescreenrecorder
+
+# fancy_echo "Installing Joxi"
+#   wget -q "http://dl.joxi.ru/linux/joxi-amd64.deb"
+#   sudo apt install -y ./joxi-amd64.deb
+#   rm joxi-amd64.deb
 
 fancy_echo "Installing sqlite3, for prototyping database-backed rails apps ..."
  sudo apt install -y libsqlite3-dev sqlite3
