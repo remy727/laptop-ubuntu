@@ -60,11 +60,7 @@ fancy_echo "Installing curl ..."
   sudo apt install -y curl
 
 fancy_echo "Installing Redis ..."
-  wget http://download.redis.io/redis-stable.tar.gz &&
-  tar xvzf redis-stable.tar.gz &&
-  cd redis-stable  && make
-  sudo cp src/redis-server /usr/local/bin/
-  sudo cp src/redis-cli /usr/local/bin/
+  sudo snap install redis
 
 fancy_echo "Installing Ngrok ..."
   wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && rm ngrok-stable-linux-amd64.zip
