@@ -20,6 +20,9 @@ fancy_echo "Installing git, for source control management ..."
 fancy_echo "Installing libraries for common gem dependencies ..."
   sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common
 
+fancy_echo "Installing libraries for ruby ..."
+  sudo apt install -y libyaml-dev zlib1g-dev
+
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
 
@@ -136,6 +139,9 @@ fancy_echo "Installing Wine"
   sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
   sudo apt update
   sudo apt install -y --install-recommends winehq-stable
+
+fancy_echo "Installing fonts ..."
+  sudo apt install fonts-firacode
 
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
