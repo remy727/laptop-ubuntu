@@ -96,6 +96,9 @@ fancy_echo "Installing asdf ..."
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 
+fancy_echo "Installing yarn ..."
+  npm install --global yarn
+
 fancy_echo "Installing Heroku CLI client ..."
   curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
