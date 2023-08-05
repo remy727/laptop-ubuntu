@@ -78,18 +78,23 @@ fancy_echo "Installing zsh and making it default shell..."
   sudo apt install -y zsh
   chsh -s $(which zsh)
 
-fancy_echo "Installing node, to render the rails asset pipeline ..."
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt install -y nodejs
+# fancy_echo "Installing node, to render the rails asset pipeline ..."
+#   curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+#   sudo apt install -y nodejs
 
-fancy_echo "Installing RVM"
-  gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E37D2BAF1CF37B13E2069D6956105BD0E739499BDB
-  \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
-  echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+# fancy_echo "Installing RVM"
+#   gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E37D2BAF1CF37B13E2069D6956105BD0E739499BDB
+#   \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+#   echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
+#   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-fancy_echo "Installing Ruby"
-  sudo apt install -y ruby
+# fancy_echo "Installing Ruby"
+#   sudo apt install -y ruby
+
+fancy_echo "Installing asdf ..."
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 fancy_echo "Installing Heroku CLI client ..."
   curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
@@ -97,6 +102,7 @@ fancy_echo "Installing Heroku CLI client ..."
 fancy_echo "Installing Heroku plugins ..."
   heroku plugins:install heroku-accounts
   heroku plugins:install heroku-config
+  heroku plugins:install data-maintenance
 
 fancy_echo "Installing chrome ..."
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
