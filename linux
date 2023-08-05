@@ -47,12 +47,11 @@ fancy_echo "Installing Postgres, a good open source relational database ..."
   sudo apt-get -y install postgresql
   sudo systemctl start postgresql.service
 
-
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   sudo apt install -y tmux
 
-fancy_echo "Installing guake, a super terminal"
-  sudo apt install -y guake
+# fancy_echo "Installing guake, a super terminal"
+#   sudo apt install -y guake
 
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   sudo apt install -y imagemagick libmagickwand-dev
