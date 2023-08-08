@@ -18,10 +18,10 @@ fancy_echo "Installing git, for source control management ..."
   sudo apt install -y git
 
 fancy_echo "Installing libraries for common gem dependencies ..."
-  sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common
+  sudo apt --ignore-missing install -y libxslt1-dev libksba8 libksba-dev libreadline-dev apt-transport-https ca-certificates gnupg-agent software-properties-common
 
 fancy_echo "Installing libraries for ruby ..."
-  sudo apt install -y libyaml-dev zlib1g-dev
+  sudo apt install -y build-essential libyaml-dev zlib1g-dev libcurl4-openssl-dev libssl-dev 
 
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
@@ -44,6 +44,7 @@ fancy_echo "Installing sqlite3, for prototyping database-backed rails apps ..."
   sudo apt install -y libsqlite3-dev sqlite3
 
 fancy_echo "Installing Postgres, a good open source relational database ..."
+  sudo apt install -y libpq-dev
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
   sudo apt-get update
