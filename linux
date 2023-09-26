@@ -14,34 +14,43 @@ fancy_echo() {
 
 read -p "Enter your email to generate ssh key: " email
 
+fancy_echo "Installing curl ..."
+  sudo apt install -y curl
+
 fancy_echo "Installing git, for source control management ..."
   sudo apt install -y git
 
+fancy_echo "Installing zsh and making it default shell..."
+  sudo apt install -y zsh
+  chsh -s $(which zsh)
+
+fancy_echo "Installing oh-my-zsh ..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 fancy_echo "Installing libraries for common gem dependencies ..."
-  sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common
+  sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common libgdbm-dev libffi-dev zlib1g-dev autoconf bison libyaml-dev
+
+fancy_echo "Installing asdf ..."
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
 
-fancy_echo "Installing VLC media player"
-  sudo snap install vlc
-
 fancy_echo "Installing Postman API development environment"
   sudo snap install postman
-
-fancy_echo "Installing simple screen recorder"
-  sudo apt install -y simplescreenrecorder
-
-fancy_echo "Installing Joxi"
-  wget -q "http://dl.joxi.ru/linux/joxi-amd64.deb"
-  sudo apt install -y ./joxi-amd64.deb
-  rm joxi-amd64.deb
 
 fancy_echo "Installing sqlite3, for prototyping database-backed rails apps ..."
  sudo apt install -y libsqlite3-dev sqlite3
 
-fancy_echo "Installing Postgres, a good open source relational database ..."
-  sudo apt install -y postgresql postgresql-server-dev-all
+fancy_echo "Installing PostgreSQL 15, a good open source relational database ..."
+  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+  wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
+  sudo apt update
+  sudo apt install -y postgresql-15
 
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   sudo apt install -y tmux
@@ -52,18 +61,12 @@ fancy_echo "Installing guake, a super terminal"
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   sudo apt install -y imagemagick libmagickwand-dev
 
-fancy_echo "Installing curl ..."
-  sudo apt install -y curl
-
 fancy_echo "Installing Redis ..."
-  wget http://download.redis.io/redis-stable.tar.gz &&
-  tar xvzf redis-stable.tar.gz &&
-  cd redis-stable  && make
-  sudo cp src/redis-server /usr/local/bin/
-  sudo cp src/redis-cli /usr/local/bin/
+  sudo snap install redis
+  sudo snap alias redis.cli redis-cli
 
 fancy_echo "Installing Ngrok ..."
-  wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && rm ngrok-stable-linux-amd64.zip
+  sudo snap install ngrok
 
 fancy_echo "Installing Sublime Text 3 ..."
   sudo snap install --classic sublime-text
@@ -71,62 +74,13 @@ fancy_echo "Installing Sublime Text 3 ..."
 fancy_echo "Installing VS Code ..."
   sudo snap install --classic code
 
-fancy_echo "Installing Unity Tweak Tool ..."
-  sudo apt install -y unity-tweak-tool
-
-fancy_echo "Installing zsh and making it default shell..."
-  sudo apt install -y zsh
-  chsh -s $(which zsh)
-
-fancy_echo "Installing node, to render the rails asset pipeline ..."
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt install -y nodejs
-
-fancy_echo "Installing RVM"
-  gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E37D2BAF1CF37B13E2069D6956105BD0E739499BDB
-  \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
-  echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-fancy_echo "Installing Ruby"
-  sudo apt install -y ruby
-
 fancy_echo "Installing Heroku CLI client ..."
   curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 fancy_echo "Installing Heroku plugins ..."
   heroku plugins:install heroku-accounts
+  heroku plugins:install heroku-builds
   heroku plugins:install heroku-config
-
-fancy_echo "Installing chrome ..."
-  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-  sudo apt update
-  sudo apt install -y google-chrome-stable
-
-fancy_echo "Generating ssh key"
-  ssh-keygen -b 4096 -t ed25519 -f /home/user/.ssh/key-ed25519 -q -N "" -C "$email"
-  sudo mv ~/.config/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.backup 
-  ssh-add /home/user/.ssh/key-ed25519
-
-fancy_echo "Installing Docker"
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-  sudo apt-get update
-  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-fancy_echo "Installing Wine"
-  wget -nc https://dl.winehq.org/wine-builds/winehq.key
-  sudo apt-key add winehq.key
-  sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
-  sudo apt update
-  sudo apt install -y --install-recommends winehq-stable
-
-fancy_echo "Installing oh-my-zsh ..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
