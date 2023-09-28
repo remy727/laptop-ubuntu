@@ -82,6 +82,15 @@ fancy_echo "Installing Heroku plugins ..."
   heroku plugins:install heroku-builds
   heroku plugins:install heroku-config
 
+fancy_echo "Installing Flameshot ..."
+  sudo apt install flameshot
+
+fancy_echo "Installing TablePlus ..."
+  wget -qO - https://deb.tableplus.com/apt.tableplus.com.gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/tableplus-archive.gpg > /dev/null
+  sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"
+  sudo apt update
+  sudo apt install tableplus
+
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
   . "$HOME/.laptop-ubuntu.local"
