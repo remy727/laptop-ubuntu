@@ -40,8 +40,11 @@ fancy_echo "Installing asdf ..."
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
 
-fancy_echo "Installing Postman API development environment"
+fancy_echo "Installing Postman"
   sudo snap install postman
+
+fancy_echo "Installing Insomnia"
+  sudo snap install insomnia
 
 fancy_echo "Installing sqlite3, for prototyping database-backed rails apps ..."
  sudo apt install -y libsqlite3-dev sqlite3
