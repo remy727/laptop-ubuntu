@@ -39,6 +39,7 @@ fancy_echo "Installing asdf ..."
 
 fancy_echo "Installing snapd canonical package manager"
   sudo apt install -y snapd
+  sudo mv /etc/ld.so.preload /etc/ld.so.preload.org
 
 fancy_echo "Installing Postman"
   sudo snap install postman
