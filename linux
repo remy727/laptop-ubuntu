@@ -86,6 +86,7 @@ fancy_echo "Installing Heroku plugins ..."
   heroku plugins:install heroku-accounts
   heroku plugins:install heroku-builds
   heroku plugins:install heroku-config
+  heroku plugins:install data-maintenance
 
 fancy_echo "Installing Flameshot ..."
   sudo apt install flameshot
