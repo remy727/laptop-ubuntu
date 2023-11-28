@@ -100,6 +100,9 @@ fancy_echo "Installing TablePlus ..."
 fancy_echo "Installing OpenSSH Server ..."
   sudo apt install openssh-server
 
+fancy_echo "Installing btop ..."
+  sudo snap install btop
+
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
   . "$HOME/.laptop-ubuntu.local"
