@@ -103,6 +103,10 @@ fancy_echo "Installing OpenSSH Server ..."
 fancy_echo "Installing btop ..."
   sudo snap install btop
 
+fancy_echo "Installing alacritty ..."
+  sudo add-apt-repository ppa:aslatter/ppa -y
+  sudo apt install alacritty
+
 if [ -f "$HOME/.laptop-ubuntu.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop-ubuntu.local ..."
   . "$HOME/.laptop-ubuntu.local"
