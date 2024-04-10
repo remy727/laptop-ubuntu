@@ -71,6 +71,10 @@ fancy_echo "Installing ImageMagick, to crop and resize images ..."
 fancy_echo "Installing Redis ..."
   sudo snap install redis
   sudo snap alias redis.cli redis-cli
+  # Set vm.overcommit_memory permanently
+  echo 'vm.overcommit_memory = 1' | sudo tee -a /etc/sysctl.conf > /dev/null
+  # Keep redis server running
+  redis-server --daemonize yes
 
 fancy_echo "Installing Ngrok ..."
   sudo snap install ngrok
