@@ -33,7 +33,7 @@ fancy_echo "Installing libraries for common gem dependencies ..."
   sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common libgdbm-dev libffi-dev zlib1g-dev autoconf bison libyaml-dev libpq-dev
 
 fancy_echo "Installing asdf ..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   sudo apt install libbz2-dev libsqlite3-dev liblzma-dev
