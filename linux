@@ -100,7 +100,7 @@ fancy_echo "Installing Redis(new)..."
 fancy_echo "Installing Ngrok(new) ..."
   wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
   tar xvzf ngrok-v3-stable-linux-amd64.tgz
-  sudo cp -f ngrok /usr/bin
+  sudo cp -f ngrok /usr/local/bin
   ngrok config add-authtoken <token>
 
 fancy_echo "Installing Sublime Text 3 ..."
