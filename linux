@@ -29,8 +29,11 @@ fancy_echo "Installing oh-my-zsh ..."
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-fancy_echo "Installing libraries for common gem dependencies ..."
-  sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common libgdbm-dev libffi-dev zlib1g-dev autoconf bison libyaml-dev libpq-dev
+# fancy_echo "Installing libraries for common gem dependencies ..."
+#   sudo apt --ignore-missing install -y libxslt1-dev libcurl4-openssl-dev libssl-dev libksba8 libksba-dev libreadline-dev build-essential apt-transport-https ca-certificates gnupg-agent software-properties-common libgdbm-dev libffi-dev zlib1g-dev autoconf bison libyaml-dev libpq-dev
+
+fancy_echo "Installing libraries for ruby"
+  sudo apt-get install autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev libpq-dev -y
 
 fancy_echo "Installing asdf ..."
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
@@ -59,6 +62,14 @@ fancy_echo "Installing PostgreSQL 15, a good open source relational database ...
   sudo apt update
   sudo apt install -y postgresql-15
 
+fancy_echo "Installing PostgreSQL 16, a good open source relational database ..."
+  sudo apt update
+  sudo apt install gnupg2
+  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+  curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+  sudo apt update
+  sudo apt install postgresql-16 postgresql-contrib-16
+
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   sudo apt install -y tmux
 
@@ -68,16 +79,28 @@ fancy_echo "Installing guake, a super terminal"
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   sudo apt install -y imagemagick libmagickwand-dev
 
-fancy_echo "Installing Redis ..."
-  sudo snap install redis
-  sudo snap alias redis.cli redis-cli
-  # Set vm.overcommit_memory permanently
-  echo 'vm.overcommit_memory = 1' | sudo tee -a /etc/sysctl.conf > /dev/null
-  # Keep redis server running
-  redis-server --daemonize yes
+# fancy_echo "Installing Redis ..."
+#   sudo snap install redis
+#   sudo snap alias redis.cli redis-cli
+#   # Set vm.overcommit_memory permanently
+#   echo 'vm.overcommit_memory = 1' | sudo tee -a /etc/sysctl.conf > /dev/null
+#   # Keep redis server running
+#   redis-server --daemonize yes
 
-fancy_echo "Installing Ngrok ..."
-  sudo snap install ngrok
+fancy_echo "Installing Redis(new)..."
+  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+  sudo apt-get update
+  sudo apt-get install redis
+
+# fancy_echo "Installing Ngrok ..."
+#   sudo snap install ngrok
+
+fancy_echo "Installing Ngrok(new) ..."
+  wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+  tar xvzf ngrok-v3-stable-linux-amd64.tgz
+  sudo cp -f ngrok /usr/bin
+  ngrok config add-authtoken <token>
 
 fancy_echo "Installing Sublime Text 3 ..."
   sudo snap install --classic sublime-text
