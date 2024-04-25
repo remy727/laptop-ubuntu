@@ -110,7 +110,7 @@ fancy_echo "Installing VS Code ..."
   sudo snap install --classic code
 
 fancy_echo "Installing Heroku CLI client ..."
-  curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  curl https://cli-assets.heroku.com/install.sh | sh
 
 fancy_echo "Installing Heroku plugins ..."
   heroku plugins:install heroku-accounts
