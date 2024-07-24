@@ -7,7 +7,7 @@ sudo apt-get install -y git >/dev/null
 
 echo "Cloning stable laptop-ubuntu..."
 rm -rf ~/.local/share/laptop-ubuntu
-git clone -b stable https://github.com/remy727/laptop-ubuntu.git ~/.local/share/laptop-ubuntu >/dev/null
+git clone -b main https://github.com/remy727/laptop-ubuntu.git ~/.local/share/laptop-ubuntu >/dev/null
 
 echo "Installation starting..."
 source ~/.local/share/laptop-ubuntu/install.sh
