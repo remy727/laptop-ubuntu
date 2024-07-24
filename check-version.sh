@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Function to check if running on Ubuntu 24.04 or higher
+# Function to check if running on Ubuntu 22.04 or higher
 check_ubuntu_version() {
     if [ -f /etc/os-release ]; then
         . /etc/os-release
         if [ "$ID" = "ubuntu" ]; then
-            if awk -v ver="$VERSION_ID" 'BEGIN {exit !(ver >= 24.04)}'; then
+            if awk -v ver="$VERSION_ID" 'BEGIN {exit !(ver >= 22.04)}'; then
                 return 0
             else
-                echo "Error: Ubuntu version must be 24.04 or higher. Current version: $VERSION_ID" >&2
+                echo "Error: Ubuntu version must be 22.04 or higher. Current version: $VERSION_ID" >&2
                 return 1
             fi
         else
