@@ -1,11 +1,11 @@
 sudo apt install -y zsh
 chsh -s $(which zsh)
 
+rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-if [ ! -d ~/.asdf ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-fi
+rm -rf ~/.asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 
 cp ~/.local/share/laptop-ubuntu/configs/zshrc ~/.zshrc
 
