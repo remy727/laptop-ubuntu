@@ -1,3 +1,4 @@
+echo
 echo "Installing Oh My Zsh.."
 
 rm -rf ~/.oh-my-zsh
