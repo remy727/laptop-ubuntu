@@ -1,1 +1,2 @@
 source ~/.local/share/laptop-ubuntu/defaults/zsh/rc
+source ~/.local/share/laptop-ubuntu/defaults/zsh/devrc

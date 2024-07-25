@@ -1,0 +1,8 @@
+export SIDEKIQ_CONCURRENCY=40
+export OMAKUB_PATH="/home/$USER/.local/share/omakub"
+
+DISABLE_AUTO_TITLE="true"
+# function set_terminal_title() {
+function stt() {
+  echo -en "\e]2;$@\a"
+}
