@@ -1,5 +1,5 @@
 echo
-echo "Installing Lazygit.."
+echo "Installing Lazygit..."
 
 cd /tmp
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
