@@ -2,4 +2,4 @@ echo
 echo "Installing Oh My Zsh..."
 
 rm -rf ~/.oh-my-zsh
-source ~/.local/share/laptop-ubuntu/install/terminal/oh-my-zsh/install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
