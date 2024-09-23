@@ -9,5 +9,6 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
+sudo systemctl enable mongod.service
 sudo systemctl start mongod
 cd -
