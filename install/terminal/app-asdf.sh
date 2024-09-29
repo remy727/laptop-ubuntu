@@ -6,4 +6,4 @@ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 asdf install nodejs 22.3.0
 asdf plugin update ruby
-asdf install ruby 3.3.4
+asdf install ruby 3.3.5
