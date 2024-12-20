@@ -1,1 +1,1 @@
-sudo apt update -y && sudo apt -y install open-vm-tools
+sudo apt update -y && sudo apt -y install --reinstall open-vm-tools
