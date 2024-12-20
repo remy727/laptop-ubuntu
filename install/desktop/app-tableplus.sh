@@ -9,4 +9,4 @@ sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 ta
 
 # Install
 sudo apt update
-sudo apt install tableplus
+sudo apt install -y tableplus
