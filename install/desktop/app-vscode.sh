@@ -12,4 +12,12 @@ mkdir -p ~/.config/Code/User
 cp ~/.local/share/omakub/configs/vscode.json ~/.config/Code/User/settings.json
 
 # Install default supported themes
-code --install-extension enkia.tokyo-night
+code --install-extension janisdd.vscode-edit-csv
+code --install-extension kaiwood.endwise
+code --install-extension ms-vscode.remote-explorer
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension pkief.material-icon-theme
+code --install-extension redhat.vscode-yaml
+code --install-extension setobiralo.erb-commenter
+code --install-extension shopify.ruby-lsp
+code --install-extension streetsidesoftware.code-spell-checker
