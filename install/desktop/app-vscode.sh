@@ -9,7 +9,7 @@ sudo apt update -y
 sudo apt install -y code
 
 mkdir -p ~/.config/Code/User
-cp ~/.local/share/omakub/configs/vscode.json ~/.config/Code/User/settings.json
+cp ~/.local/share/laptop-ubuntu/configs/vscode.json ~/.config/Code/User/settings.json
 
 # Install default supported themes
 code --install-extension janisdd.vscode-edit-csv

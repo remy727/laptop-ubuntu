@@ -23,4 +23,7 @@ else
   echo "Failed to create cursor.desktop"
 fi
 
+mkdir -p ~/.config/Cursor/User
+cp ~/.local/share/laptop-ubuntu/configs/vscode.json ~/.config/Cursor/User/settings.json
+
 cd -
