@@ -11,7 +11,8 @@ sudo apt install -y code
 mkdir -p ~/.config/Code/User
 cp ~/.local/share/laptop-ubuntu/configs/vscode.json ~/.config/Code/User/settings.json
 
-# Install default supported themes
+# Install extensions
+code --install-extension eamodio.gitlens
 code --install-extension janisdd.vscode-edit-csv
 code --install-extension kaiwood.endwise
 code --install-extension ms-vscode.remote-explorer
