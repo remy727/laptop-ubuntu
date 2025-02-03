@@ -8,3 +8,4 @@ echo "Installing Heroku plugins ..."
 
 heroku plugins:install @heroku-cli/heroku-accounts
 heroku plugins:install heroku-config
+heroku plugins:install @heroku-cli/plugin-data-maintenance
