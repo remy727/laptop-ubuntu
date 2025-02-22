@@ -20,6 +20,7 @@ code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension pkief.material-icon-theme
 code --install-extension redhat.vscode-yaml
 code --install-extension setobiralo.erb-commenter
+code --install-extension shopify.polaris-for-vscode
 code --install-extension shopify.ruby-lsp
 code --install-extension shopify.theme-check-vscode
 code --install-extension streetsidesoftware.code-spell-checker
