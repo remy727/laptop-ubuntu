@@ -23,4 +23,5 @@ code --install-extension setobiralo.erb-commenter
 code --install-extension shopify.polaris-for-vscode
 code --install-extension shopify.ruby-lsp
 code --install-extension shopify.theme-check-vscode
+code --install-extension Shopify.vscode-shopify-dev-assistant	
 code --install-extension streetsidesoftware.code-spell-checker
