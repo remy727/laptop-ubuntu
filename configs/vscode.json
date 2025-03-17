@@ -1,32 +1,36 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.fontFamily": "'Martian Mono v1.1 Alpha May-28', Menlo, monospace",
-  "editor.fontSize": 11.5,
-  "editor.fontLigatures": true,
-  "editor.lineHeight": 18,
-  "editor.fontVariations": "'wdth' 100, 'wght' 300",
-  // "editor.fontWeight": 300,
+  "diffEditor.maxComputationTime": 0,
+  // Martian Mono
+  // "editor.fontFamily": "Martian Mono",
+  // "editor.fontSize": 11.5,
+  // "editor.fontLigatures": true,
+  // "editor.lineHeight": 18,
+  // "editor.fontVariations": "'wdth' 100, 'wght' 300",
+  // Berkeley Mono
+  "editor.fontFamily": "Berkeley Mono",
+  "editor.fontSize": 13.5,
+  "editor.fontWeight": 100,
+  "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
-  // "editor.quickSuggestions": {
-  //   "comments": false,
-  //   "other": false,
-  //   "strings": false
-  // },
   "editor.rulers": [120],
   "editor.selectionHighlight": false,
-  // "editor.suggestOnTriggerCharacters": false,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
   "extensions.ignoreRecommendations": true,
+  "files.exclude": {
+    "**/node_modules/**": true
+  },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.ignoreMissingGitWarning": true,
   "git.openRepositoryInParentFolders": "always",
-  "remote.SSH.configFile": "C:\\Users\\Administrator\\.vscode\\remote_ssh_config",
   "rubyLsp.erbSupport": false,
   "rubyLsp.formatter": "none",
   "rubyLsp.linters": [],
@@ -34,18 +38,24 @@
   "security.workspace.trust.banner": "always",
   "security.workspace.trust.emptyWindow": false,
   "security.workspace.trust.enabled": false,
-  "terminal.integrated.fontFamily": "'Martian Mono v1.1 Alpha May-28', Menlo, monospace",
-  "terminal.integrated.fontSize": 13,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.env.linux": {
+    "FORCE_HYPERLINK": "1"
+  },
+  "terminal.integrated.fontFamily": "Berkeley Mono",
+  "terminal.integrated.fontSize": 13.5,
   "terminal.integrated.fontWeight": "300",
   "terminal.integrated.scrollback": 1000000,
-  // "window.menuBarVisibility": "compact",
+  "terminal.integrated.tabs.enabled": false,
+  "update.showReleaseNotes": false,
+  "window.customTitleBarVisibility": "auto",
+  "window.menuBarVisibility": "compact",
   "window.restoreWindows": "none",
   "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "default",
   "workbench.activityBar.orientation": "vertical",
   "workbench.colorTheme": "Visual Studio Dark",
   "workbench.iconTheme": "material-icon-theme",
-  "remote.SSH.remotePlatform": {
-    "192.168.3.54": "linux",
-    "192.168.3.56": "linux"
-  }
+  "workbench.startupEditor": "none"
 }
